@@ -2,10 +2,18 @@ import { Link } from 'react-router-dom'
 import './Head.css'
 import HeadNavItem from './HeadNavItem'
 import HeadCompose from './HeadCompose'
+import HeadNavDropdown from './HeadNavDropdown'
+
+const data = {
+  notificationMenu: [
+    { to: '/', text: '新提醒' },
+    { to: '/', text: '短消息' },
+  ]
+}
 
 export default function Head () {
   return (
-    <div className="w-full h-14 bg-indigo-800 border-b-2 border-indigo-900 leading-14 head-shadow">
+    <div className="w-full h-14 bg-indigo-800 border-b border-indigo-900 leading-14 head-shadow">
       <div className="container xl:max-w-screen-lg 2xl:max-w-screen-lg mx-auto h-full flex">
         <Link className="logo" to="/"/>
         <ul className="flex flex-1">
@@ -13,9 +21,9 @@ export default function Head () {
           <HeadNavItem to="/article">文章</HeadNavItem>
         </ul>
         <ul className="flex">
-          <HeadNavItem to="/">提醒</HeadNavItem>
-          <HeadNavItem to="/">购书袋</HeadNavItem>
-          <HeadCompose to="/">写作</HeadCompose>
+          <HeadNavDropdown items={data.notificationMenu}>提醒</HeadNavDropdown>
+          <HeadNavItem to="/user/cart">购书袋</HeadNavItem>
+          <HeadCompose to="/article/write">写作</HeadCompose>
         </ul>
       </div>
     </div>
