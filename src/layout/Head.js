@@ -5,7 +5,7 @@ import HeadCompose from './HeadCompose'
 
 export default function Head () {
   return (
-    <div className="w-full h-14 bg-indigo-800 border-b-2 border-indigo-900 leading-14">
+    <div className="w-full h-14 bg-indigo-800 border-b-2 border-indigo-900 leading-14 head-shadow">
       <div className="container xl:max-w-screen-lg 2xl:max-w-screen-lg mx-auto h-full flex">
         <Link className="logo" to="/"/>
         <ul className="flex flex-1">
