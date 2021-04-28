@@ -1,0 +1,4 @@
+.logo {
+    background-image: url("../assets/images/itr-logo-160x40@2x.png");
+    @apply w-40 h-full bg-contain bg-center block cursor-pointer;
+}

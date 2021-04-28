@@ -1,18 +1,12 @@
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from './Home.js'
 import User from './User'
+import Head from './layout/Head'
 
 export default function App () {
   return (
     <Router>
-      <ul>
-        <li>
-          <Link to="/">home</Link>
-        </li>
-        <li>
-          <Link to="/user">user</Link>
-        </li>
-      </ul>
+      <Head/>
       <Switch>
         <Route path="/user" component={User}/>
         <Route path="/" component={Home}/>
