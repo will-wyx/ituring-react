@@ -9,19 +9,21 @@ export default class HeadNavDropdown extends React.Component {
     this.state = {
       open: false
     }
+    this.dropdownBtn = React.createRef()
   }
 
   handleClick = (e) => {
-    e.stopPropagation()
     this.setState({
       open: true
     })
   }
 
-  handleDocumentClick = () => {
-    this.setState({
-      open: false
-    })
+  handleDocumentClick = (e) => {
+    if (!this.dropdownBtn.current.contains(e.target)) {
+      this.setState({
+        open: false
+      })
+    }
   }
 
   componentDidMount () {
@@ -35,7 +37,8 @@ export default class HeadNavDropdown extends React.Component {
   render () {
     return (
       <li className="text-white hover:bg-indigo-900 cursor-pointer relative">
-        <span className="block h-full w-full px-3 select-none" onClick={this.handleClick}>{this.props.children}</span>
+        <span ref={this.dropdownBtn} className="block h-full w-full px-3 select-none"
+              onClick={this.handleClick}>{this.props.children}</span>
         <ul
           className={clsx('list', this.state.open && 'open')}>
           {
