@@ -40,11 +40,15 @@ export default class HeadNavDropdown extends React.Component {
           className={clsx('list', this.state.open && 'open')}>
           {
             this.props.items.map((item, index) => {
-              return (
-                <li key={index} className="hover:bg-indigo-100">
-                  <Link to={item.to} className="block py-2.5 px-5">{item.text}</Link>
-                </li>
-              )
+              if (item.divider) {
+                return <li className="h-px my-2.5 bg-gray-300"/>
+              } else {
+                return (
+                  <li key={index} className="hover:bg-indigo-100">
+                    <Link to={item.to} className="block py-2.5 px-5">{item.text}</Link>
+                  </li>
+                )
+              }
             })
           }
         </ul>

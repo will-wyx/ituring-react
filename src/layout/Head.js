@@ -8,6 +8,16 @@ const data = {
   notificationMenu: [
     { to: '/alarm', text: '新提醒' },
     { to: '/', text: '短消息' },
+  ],
+  userMenu: [
+    { to: '/', text: '我的空间' },
+    { to: '/', text: '我的文章' },
+    { to: '/', text: '拥有的书' },
+    { to: '/', text: '拥有的课' },
+    { to: '/', text: '个人设置' },
+    { to: '/', text: '帮助' },
+    { divider: true },
+    { to: '/', text: '退出' },
   ]
 }
 
@@ -23,6 +33,7 @@ export default function Head () {
         <ul className="flex">
           <HeadNavDropdown items={data.notificationMenu}>提醒</HeadNavDropdown>
           <HeadNavItem to="/user/cart">购书袋</HeadNavItem>
+          <HeadNavDropdown items={data.userMenu}><img src="/images/127606.png" alt="lliw" className="inline-block mr-2"/><span>lliw</span></HeadNavDropdown>
           <HeadCompose to="/article/write">写作</HeadCompose>
         </ul>
       </div>
