@@ -1,11 +1,19 @@
 import React from 'react'
 import FontAwesome from 'react-fontawesome'
-import "./InputSearch.css"
+import './InputSearch.css'
 import clsx from 'clsx'
+import PropTypes from 'prop-types'
 
 export default class InputSearch extends React.Component {
+  static propTypes = {
+    onSearch: PropTypes.func.isRequired,
+    className: PropTypes.string,
+    placeholder: PropTypes.string
+  }
+
   handleSubmit = (e) => {
     e.preventDefault()
+    this.props.onSearch()
   }
 
   handleFocus = () => {

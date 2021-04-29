@@ -1,16 +1,19 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import Home from './Home.js'
-import User from './User'
-import Head from './layout/Head'
+import Home from './pages/Home.js'
+import User from './pages/User'
+import Search from './pages/Search'
+import Layout from './layout/Layout'
 
 export default function App () {
   return (
     <Router>
-      <Head/>
-      <Switch>
-        <Route path="/user" component={User}/>
-        <Route path="/" component={Home}/>
-      </Switch>
+      <Layout>
+        <Switch>
+          <Route path="/search" component={Search}/>
+          <Route path="/user" component={User}/>
+          <Route path="/" component={Home}/>
+        </Switch>
+      </Layout>
     </Router>
   )
 }
