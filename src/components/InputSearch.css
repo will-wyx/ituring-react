@@ -1,0 +1,3 @@
+.input-search-container {
+  @apply h-8 overflow-hidden inline-block leading-14 align-middle w-72 relative
+}

@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
 import './Head.css'
-import HeadNavItem from './HeadNavItem'
-import HeadCompose from './HeadCompose'
+import HeadNavLink from './HeadNavLink'
+import HeadNavCompose from './HeadNavCompose'
 import HeadNavDropdown from './HeadNavDropdown'
+import HeadNavSearch from './HeadNavSearch'
 
 const data = {
   notificationMenu: [
@@ -27,14 +28,15 @@ export default function Head () {
       <div className="container xl:max-w-screen-lg 2xl:max-w-screen-lg mx-auto h-full flex">
         <Link className="logo" to="/"/>
         <ul className="flex flex-1">
-          <HeadNavItem to="/book">图书</HeadNavItem>
-          <HeadNavItem to="/article">文章</HeadNavItem>
+          <HeadNavLink to="/book">图书</HeadNavLink>
+          <HeadNavLink to="/article">文章</HeadNavLink>
+          <HeadNavSearch placeholder="技术改变世界 阅读塑造人生"/>
         </ul>
         <ul className="flex">
           <HeadNavDropdown items={data.notificationMenu}>提醒</HeadNavDropdown>
-          <HeadNavItem to="/user/cart">购书袋</HeadNavItem>
+          <HeadNavLink to="/user/cart">购书袋</HeadNavLink>
           <HeadNavDropdown items={data.userMenu}><img src="/images/127606.png" alt="lliw" className="inline-block mr-2"/><span>lliw</span></HeadNavDropdown>
-          <HeadCompose to="/article/write">写作</HeadCompose>
+          <HeadNavCompose to="/article/write">写作</HeadNavCompose>
         </ul>
       </div>
     </div>

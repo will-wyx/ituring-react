@@ -41,7 +41,7 @@ export default class HeadNavDropdown extends React.Component {
           {
             this.props.items.map((item, index) => {
               if (item.divider) {
-                return <li className="h-px my-2.5 bg-gray-300"/>
+                return <li key={index} className="h-px my-2.5 bg-gray-300"/>
               } else {
                 return (
                   <li key={index} className="hover:bg-indigo-100">
