@@ -1,7 +1,16 @@
 .min-w-px-160 {
-    min-width: 160px;
+  min-width: 160px;
 }
 
 .mt-px-1 {
-    margin-top: 1px;
+  margin-top: 1px;
+}
+
+.list {
+  @apply absolute bg-indigo-50 text-black min-w-px-160 py-1.5 border border-black border-opacity-10 rounded mt-px-1 leading-none shadow-lg;
+  @apply hidden;
+}
+
+.list.open {
+  @apply block;
 }

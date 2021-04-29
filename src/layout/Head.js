@@ -6,7 +6,7 @@ import HeadNavDropdown from './HeadNavDropdown'
 
 const data = {
   notificationMenu: [
-    { to: '/', text: '新提醒' },
+    { to: '/alarm', text: '新提醒' },
     { to: '/', text: '短消息' },
   ]
 }

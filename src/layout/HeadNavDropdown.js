@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import './HeadNavDropdown.css'
 import React from 'react'
+import clsx from 'clsx'
 
 export default class HeadNavDropdown extends React.Component {
   constructor (props) {
@@ -10,12 +11,33 @@ export default class HeadNavDropdown extends React.Component {
     }
   }
 
+  handleClick = (e) => {
+    e.stopPropagation()
+    this.setState({
+      open: true
+    })
+  }
+
+  handleDocumentClick = () => {
+    this.setState({
+      open: false
+    })
+  }
+
+  componentDidMount () {
+    document.addEventListener('click', this.handleDocumentClick, false)
+  }
+
+  componentWillUnmount () {
+    document.removeEventListener('click', this.handleDocumentClick, false)
+  }
+
   render () {
     return (
       <li className="text-white hover:bg-indigo-900 cursor-pointer relative">
-        <span className="block h-full w-full px-3 select-none">{this.props.children}</span>
+        <span className="block h-full w-full px-3 select-none" onClick={this.handleClick}>{this.props.children}</span>
         <ul
-          className="absolute bg-indigo-50 text-black min-w-px-160 py-1.5 border border-black border-opacity-10 rounded mt-px-1 leading-none shadow-lg">
+          className={clsx('list', this.state.open && 'open')}>
           {
             this.props.items.map((item, index) => {
               return (
